@@ -4,10 +4,10 @@
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)
 ![CatBoost](https://img.shields.io/badge/CatBoost-Gradient%20Boosting-FFCC00?style=flat-square)
 ![Optuna](https://img.shields.io/badge/Optuna-Bayesian%20Tuning-6DB33F?style=flat-square)
-![ROC AUC](https://img.shields.io/badge/ROC%20AUC-0.9321-brightgreen?style=flat-square)
+![ROC AUC](https://img.shields.io/badge/ROC%20AUC-0.9326-brightgreen?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Complete-success?style=flat-square)
 
-> **Predicting customer cancellation before it happens** — binary classification model for Interconnect Telecom, achieving ROC AUC **0.9321** (target: 0.88 ✅).
+> **Predicting customer cancellation before it happens** — binary classification model for Interconnect Telecom, achieving ROC AUC **0.9326** (target: 0.88 ✅).
 
 ---
 
@@ -108,23 +108,35 @@ Two reusable, production-oriented functions centralise all evaluation logic:
 | DummyClassifier | 0.5000 |
 | Logistic Regression | 0.8249 |
 | CatBoost (manual tuning) | 0.9172 |
-| **CatBoost (Optuna)** | **0.9321** ✅ |
+| **CatBoost (Optuna)** | **0.9326** ✅ |
 
 **Best model — CatBoost (Optuna) on test set:**
 
 | Metric | Value |
 |---|---|
-| ROC AUC | **0.9321** |
+| ROC AUC | **0.9326** |
 | Accuracy | 87% |
 | Recall (churn) | 79% |
 | F1-score (churn) | 0.76 |
 
 **Top 5 features by importance:**
-1. `tenure_months` — 23.96%
-2. `TotalCharges`
-3. `MonthlyCharges`
-4. `Type` (contract type)
-5. `InternetService`
+1. `TotalCharges` (~32%)
+2. `tenure_months` (~32%)
+3. `MonthlyCharges` (~15%)
+4. `Type` — contract type (~9%)
+5. `InternetService` (~4%)
+
+---
+
+## 🖼️ Visuals
+
+**Confusion Matrix & ROC Curve — CatBoost (Optuna)**
+
+![Confusion Matrix and ROC Curve](notebooks/images/roc_confusion_matrix.png)
+
+**Feature Importances — CatBoost (Optuna)**
+
+![Feature Importances](notebooks/images/feature_importances.png)
 
 ---
 
@@ -161,7 +173,7 @@ pip install -r requirements.txt
 jupyter notebook notebooks/churn_prediction.ipynb
 ```
 
-> **Note:** The dataset files must be present in the `/data` folder. If running on TripleTen's platform, update `BASE_PATH` in the notebook to `../data/`.
+> **Note:** The notebook is configured to run from the `/notebooks` directory. If moving it, update the `BASE_PATH` variable at the top of the notebook accordingly. When running on TripleTen's platform, set `BASE_PATH = '../data/'`.
 
 ---
 
