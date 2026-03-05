@@ -1,0 +1,20 @@
+# ── Core data stack ───────────────────────────────────────────────────────────
+pandas>=1.5.0
+numpy>=1.23.0
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# ── Machine Learning ──────────────────────────────────────────────────────────
+scikit-learn>=1.2.0
+catboost>=1.2.0
+
+# ── Hyperparameter optimisation ───────────────────────────────────────────────
+optuna>=3.1.0
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+jupyter>=1.0.0
+notebook>=6.5.0
+ipykernel>=6.20.0
+ipywidgets>=8.0.0      # required for optuna progress bar in notebook
